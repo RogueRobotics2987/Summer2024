@@ -4,7 +4,12 @@
 
 #include "subsystems/ExampleSubsystem.h"
 
+//TODO: Comment out line 11 "ExampleSubsystem::ExampleSubsystem() {"
+//And uncomment line 12 "ExampleSubsystem::ExampleSubsystem(int m_MotorController) {"
+//And line 14 "m_driveMotor = new rev::CANSparkMax(m_MotorController, rev::CANSparkMax::MotorType::kBrushless);"
+
 ExampleSubsystem::ExampleSubsystem() {
+//ExampleSubsystem::ExampleSubsystem(int m_MotorController) {
   // Implementation of subsystem constructor goes here.
   //m_driveMotor = new rev::CANSparkMax(m_MotorController, rev::CANSparkMax::MotorType::kBrushless);
 }
