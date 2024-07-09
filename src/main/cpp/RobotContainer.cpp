@@ -8,6 +8,7 @@
 
 #include "commands/Autos.h"
 #include "commands/DriveCommand.h"
+#include "commands/DriveLEFT.h"
 
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
@@ -22,13 +23,15 @@ void RobotContainer::ConfigureBindings() {
   // Schedule `DriveCommand` when `exampleCondition` changes to `true`
   /*frc2::Trigger([this] {
     return m_subsystem.ExampleCondition();
-  }).OnTrue(DriveCommand(&m_subsystem).ToPtr());*/
+  }).OnTrue(DriveCommand(&m_subsystem).ToPtr());
+  */
 
   // Schedule `ExampleMethodCommand` when the Xbox controller's B button is
   // pressed, cancelling on release.
-  m_driverController.B().ToggleOnTrue(DriveCommand(m_subsystem).ToPtr());
-}
+  m_driverController.B().ToggleOnTrue(DriveCommand(m_motorRIGHT).ToPtr());
+  m_driverController.A().ToggleOnTrue(DriveLEFT(m_motorLEFT).ToPtr());
 
+}
 /*frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
   return autos::ExampleAuto(&m_subsystem);
