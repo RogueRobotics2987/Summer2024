@@ -24,7 +24,6 @@ DriveLEFT::DriveLEFT(DriveSubsystem &motorLEFT)
 
 void DriveLEFT::Initialize()
 {
-// m_motorRIGHT->SetSpeed(0.25);
  m_motorLEFT->SetSpeed(-0.25);
 }
 
@@ -35,7 +34,6 @@ void DriveLEFT::Execute()
 
 void DriveLEFT::End(bool interrupted)
 {
-//  m_motorRIGHT->SetSpeed(0);
   m_motorLEFT->SetSpeed(0);
 }
 

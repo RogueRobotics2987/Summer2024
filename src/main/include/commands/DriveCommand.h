@@ -18,7 +18,8 @@
  * Command will *not* work!
  */
 class DriveCommand
-    : public frc2::CommandHelper<frc2::Command, DriveCommand> {
+    : public frc2::CommandHelper<frc2::Command, DriveCommand>
+{
  public:
   /**
    * Creates a new DriveCommand.
@@ -27,8 +28,7 @@ class DriveCommand
    */
   DriveCommand();
   DriveCommand(DriveSubsystem &motorRIGHT);
-  //DriveCommand(DriveSubsystem &subsystemLEFT);
-  
+   
     void Initialize() override;
 
     void Execute() override;
@@ -37,8 +37,6 @@ class DriveCommand
 
     bool IsFinished() override;
 
-  
  private:
   DriveSubsystem* m_motorRIGHT = nullptr;
-  //DriveSubsystem* m_subsystemLEFT = nullptr;
 };

@@ -12,20 +12,9 @@ DriveCommand::DriveCommand(DriveSubsystem &motorRIGHT)
   
   AddRequirements(m_motorRIGHT);
 }
-/*
-DriveCommand::DriveCommand(DriveSubsystem &motorLEFT)
-{
-  // Register that this command requires the subsystem.
-  
-  m_motorLEFT = &motorLEFT;
-  
-  AddRequirements(m_motorLEFT);
-}
-*/
 void DriveCommand::Initialize()
 {
  m_motorRIGHT->SetSpeed(0.25);
- //m_motorLEFT->SetSpeed(-0.25);
 }
 
 void DriveCommand::Execute()
@@ -36,7 +25,6 @@ void DriveCommand::Execute()
 void DriveCommand::End(bool interrupted)
 {
   m_motorRIGHT->SetSpeed(0);
- // m_motorLEFT->SetSpeed(0);
 }
 
 bool DriveCommand::IsFinished()

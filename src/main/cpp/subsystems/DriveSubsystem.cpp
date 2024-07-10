@@ -18,6 +18,7 @@ void DriveSubsystem::SetSpeed(double speed)
   LeftFrontMotor.Set(speed);
 }
 
-void DriveSubsystem::Periodic() {
+void DriveSubsystem::Periodic() 
+{
   // Implementation of subsystem periodic method goes here.
 }
