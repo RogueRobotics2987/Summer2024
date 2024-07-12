@@ -15,20 +15,28 @@ DriveCommand::DriveCommand(DriveSubsystem &subsystem)
 
 void DriveCommand::Initialize()
 {
- m_subsystem->SetSpeed(0.25);
+ m_subsystem->SetSpeedRight (0.25);
+ m_subsystem->SetSpeedLeft (-0.25);
+ Time = 0;
 }
 
 void DriveCommand::Execute()
 {
-
+ Time++;
 }
 
 void DriveCommand::End(bool interrupted)
 {
-  m_subsystem->SetSpeed(0);
+  m_subsystem->SetSpeedRight (0);
+  m_subsystem->SetSpeedLeft (0);
+
 }
 
 bool DriveCommand::IsFinished()
 {
+  if(Time > 100)
+  {
+    return true;
+  }
   return false;
 }

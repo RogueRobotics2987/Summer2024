@@ -38,5 +38,5 @@ class DriveCommand
 
  private:
   DriveSubsystem* m_subsystem = nullptr;
-
+  double Time = 0;
 };

@@ -9,10 +9,15 @@ DriveSubsystem::DriveSubsystem()
  
 }
 
-void DriveSubsystem::SetSpeed(double speed)
+void DriveSubsystem::SetSpeedRight (double RightSpeed)
 {
- RightBackMotor.Set(speed);
- RightFrontMotor.Set(speed);
+ RightBackMotor.Set(RightSpeed);
+ RightFrontMotor.Set(RightSpeed);
+}
+void DriveSubsystem::SetSpeedLeft (double LeftSpeed)
+{
+ leftFrontMotor.Set(LeftSpeed);
+ leftBackMotor.Set(LeftSpeed);
 }
 
 void DriveSubsystem::Periodic() {

@@ -10,7 +10,8 @@
 
 class DriveSubsystem : public frc2::SubsystemBase {
  public:
-  void SetSpeed(double speed);
+  void SetSpeedRight (double RightSpeed);
+  void SetSpeedLeft (double LeftSpeed);
   DriveSubsystem();
 
   /**
@@ -21,6 +22,8 @@ class DriveSubsystem : public frc2::SubsystemBase {
  private:
   rev::CANSparkMax RightBackMotor{51, rev::CANSparkMax::MotorType::kBrushless}; 
   rev::CANSparkMax RightFrontMotor{15, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax leftFrontMotor{44, rev::CANSparkMax::MotorType::kBrushless}; 
+  rev::CANSparkMax leftBackMotor{8, rev::CANSparkMax::MotorType::kBrushless};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };
