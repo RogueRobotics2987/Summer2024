@@ -26,7 +26,6 @@ class DriveLEFT
    * @param subsystem The subsystem used by this command.
    */
   DriveLEFT();
-  //DriveCommand(DriveSubsystem &motorRIGHT);
   DriveLEFT(DriveSubsystem &motorLEFT);
   
     void Initialize() override;
@@ -39,6 +38,5 @@ class DriveLEFT
 
   
  private:
- // DriveSubsystem* m_motorRIGHT = nullptr;
   DriveSubsystem* m_motorLEFT = nullptr;
 };

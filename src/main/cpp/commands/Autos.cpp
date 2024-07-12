@@ -6,7 +6,7 @@
 
 #include <frc2/command/Commands.h>
 
-#include "commands/DriveCommand.h"
+#include "commands/DriveRIGHT.h"
 
 /*frc2::CommandPtr autos::ExampleAuto(ExampleSubsystem* subsystem) {
   return frc2::cmd::Sequence(subsystem->ExampleMethodCommand(),

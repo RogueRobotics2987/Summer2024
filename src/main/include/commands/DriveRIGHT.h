@@ -17,8 +17,8 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DriveCommand
-    : public frc2::CommandHelper<frc2::Command, DriveCommand>
+class DriveRIGHT
+    : public frc2::CommandHelper<frc2::Command, DriveRIGHT>
 {
  public:
   /**
@@ -26,8 +26,8 @@ class DriveCommand
    *
    * @param subsystem The subsystem used by this command.
    */
-  DriveCommand();
-  DriveCommand(DriveSubsystem &motorRIGHT);
+  DriveRIGHT();
+  DriveRIGHT(DriveSubsystem &motorRIGHT);
    
     void Initialize() override;
 

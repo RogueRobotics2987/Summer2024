@@ -2,9 +2,9 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include "commands/DriveCommand.h"
+#include "commands/DriveRIGHT.h"
 
-DriveCommand::DriveCommand(DriveSubsystem &motorRIGHT)
+DriveRIGHT::DriveRIGHT(DriveSubsystem &motorRIGHT)
 {
   // Register that this command requires the subsystem.
   
@@ -12,22 +12,22 @@ DriveCommand::DriveCommand(DriveSubsystem &motorRIGHT)
   
   AddRequirements(m_motorRIGHT);
 }
-void DriveCommand::Initialize()
+void DriveRIGHT::Initialize()
 {
- m_motorRIGHT->SetSpeed(0.25);
+ m_motorRIGHT->SetRightSpeed(0.25);
 }
 
-void DriveCommand::Execute()
+void DriveRIGHT::Execute()
 {
 
 }
 
-void DriveCommand::End(bool interrupted)
+void DriveRIGHT::End(bool interrupted)
 {
-  m_motorRIGHT->SetSpeed(0);
+  m_motorRIGHT->SetRightSpeed(0);
 }
 
-bool DriveCommand::IsFinished()
+bool DriveRIGHT::IsFinished()
 {
   return false;
 }

@@ -9,11 +9,13 @@ DriveSubsystem::DriveSubsystem()
  
 }
 
-void DriveSubsystem::SetSpeed(double speed)
+void DriveSubsystem::SetRightSpeed(double speed)
 {
   RightBackMotor.Set(speed);
   RightFrontMotor.Set(speed);
-
+}
+void DriveSubsystem::SetLeftSpeed(double speed)
+{
   LeftBackMotor.Set(speed);
   LeftFrontMotor.Set(speed);
 }

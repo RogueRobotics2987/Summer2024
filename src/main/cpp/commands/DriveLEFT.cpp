@@ -3,16 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "commands/DriveLEFT.h"
-/*
-DriveCommand::DriveCommand(DriveSubsystem &motorRIGHT)
-{
-  // Register that this command requires the subsystem.
-  
-  m_motorRIGHT = &motorRIGHT;
-  
-  AddRequirements(m_motorRIGHT);
-}
-*/
+
 DriveLEFT::DriveLEFT(DriveSubsystem &motorLEFT)
 {
   // Register that this command requires the subsystem.
@@ -24,7 +15,7 @@ DriveLEFT::DriveLEFT(DriveSubsystem &motorLEFT)
 
 void DriveLEFT::Initialize()
 {
- m_motorLEFT->SetSpeed(-0.25);
+ m_motorLEFT->SetLeftSpeed(-0.25);
 }
 
 void DriveLEFT::Execute()
@@ -34,7 +25,7 @@ void DriveLEFT::Execute()
 
 void DriveLEFT::End(bool interrupted)
 {
-  m_motorLEFT->SetSpeed(0);
+  m_motorLEFT->SetLeftSpeed(0);
 }
 
 bool DriveLEFT::IsFinished()

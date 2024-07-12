@@ -10,7 +10,8 @@
 
 class DriveSubsystem : public frc2::SubsystemBase {
  public:
-  void SetSpeed(double speed);
+  void SetRightSpeed(double speed);
+  void SetLeftSpeed(double speed);
   DriveSubsystem();
 
   /**

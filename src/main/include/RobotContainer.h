@@ -30,8 +30,7 @@ class RobotContainer
       OperatorConstants::kDriverControllerPort};
 
   // The robot's subsystems are defined here...
-  DriveSubsystem m_motorRIGHT;
-  DriveSubsystem m_motorLEFT;
-
+  DriveSubsystem m_motorDriveSubsystem;
+  
   void ConfigureBindings();
 };
