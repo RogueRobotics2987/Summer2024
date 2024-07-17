@@ -9,6 +9,7 @@
 #include "commands/Autos.h"
 #include "commands/DriveRIGHT.h"
 #include "commands/DriveLEFT.h"
+#include "commands/DriveWithButtons.h"
 
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
@@ -28,8 +29,10 @@ void RobotContainer::ConfigureBindings() {
 
   // Schedule `ExampleMethodCommand` when the Xbox controller's B button is
   // pressed, cancelling on release.
-  m_driverController.B().ToggleOnTrue(DriveRIGHT(m_motorDriveSubsystem).ToPtr());
-  m_driverController.A().ToggleOnTrue(DriveLEFT(m_motorDriveSubsystem).ToPtr());
+
+ // m_driverController.B().ToggleOnTrue(DriveRIGHT(m_motorDriveSubsystem).ToPtr());
+ // m_driverController.A().ToggleOnTrue(DriveLEFT(m_motorDriveSubsystem).ToPtr());
+  m_motorDriveSubsystem.SetDefaultCommand(DriveWithButtons(m_driverController, m_motorDriveSubsystem));
 
 }
 /*frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
