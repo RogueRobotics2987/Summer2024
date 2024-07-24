@@ -27,7 +27,7 @@ void RobotContainer::ConfigureBindings() {
 
   // Schedule `ExampleMethodCommand` when the Xbox controller's B button is
   // pressed, cancelling on release.
-  m_driverController.A().ToggleOnTrue(DriveCommand(m_subsystem).ToPtr());
+  // m_driverController.A().ToggleOnTrue(DriveCommand(m_subsystem).ToPtr());
 }
 
 /*frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
