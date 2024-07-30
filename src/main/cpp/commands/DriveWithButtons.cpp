@@ -35,7 +35,7 @@ void DriveWithButtons::Execute() {
 /* This code is from Swerve Drive as an example of what I need to do
 
       bool noJoystickInput = false; //checks if there is any joystick input (if true the wheels will go to the the 45 degree (X) position)
-      double safeX = DeadzoneCubed(m_controller.GetLeftX());
+      double safeX = DeadzoneCubed(m_driverController.GetLeftX());
       double safeY =  DeadzoneCubed(m_driverController.GetLeftY());
       double safeRot = DeadzoneCubed(m_driverController.GetRightX());
 
@@ -67,22 +67,33 @@ void DriveWithButtons::Execute() {
       END Sample code from Swerve drive
       */
  // Right side motors
- if (m_driverController->GetRawButton(2) == true)
+ //if (m_driverController->GetRawButton(2) == true)
+ if (fabs (m_driverController->GetRightY()) > 0.1)
       { 
-        m_motorDriveSubsystem->SetRightSpeed(0.25);
+        m_motorDriveSubsystem->SetRightSpeed(m_driverController->GetRightY()*-0.5);
       }
-else if (m_driverController->GetRawButton(2) == false)
+else 
       { 
         m_motorDriveSubsystem->SetRightSpeed(0);
       }
+      
 //Left side motors
- if (m_driverController->GetRawButton(1) == true)
+ if (fabs (m_driverController->GetLeftY()) > 0.1)
+      { 
+        m_motorDriveSubsystem->SetLeftSpeed(m_driverController->GetLeftY()*0.5);
+      }
+else 
+      { 
+        m_motorDriveSubsystem->SetLeftSpeed(0);
+
+/* if (m_driverController->GetRawButton(1) == true)
       { 
         m_motorDriveSubsystem->SetLeftSpeed(-0.25);
       }
 else if (m_driverController->GetRawButton(1) == false)
       { 
         m_motorDriveSubsystem->SetLeftSpeed(0);
+*/
       }
 
     }
