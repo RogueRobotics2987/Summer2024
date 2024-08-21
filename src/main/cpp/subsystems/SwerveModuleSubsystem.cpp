@@ -11,8 +11,12 @@ SwerveModuleSubsystem::SwerveModuleSubsystem(
 {
   this->m_EncoderType = m_EncoderType;
   this->m_counts_per_rev = m_counts_per_rev;
-  m_driveMotor = new rev::CANSparkMax(m_MotorController, rev::CANSparkMax::MotorType::kBrushless);
-  m_driveMotor->SetOpenLoopRampRate(0.5);
+  m_driveMotor = new ctre::phoenix6::hardware::TalonFX(m_MotorController, CANconstants::ctreBus);
+//made driveRampConfig a object, took VoltageOpenLoopRampPeriod and set it to 0.5 so it will slowly increase the speed over 0.5 seconds
+  ctre::phoenix6::configs::OpenLoopRampsConfigs driveRampConfig;
+  driveRampConfig.VoltageOpenLoopRampPeriod = 0.5;
+
+  m_driveMotor->GetConfigurator().Apply(driveRampConfig);
 
   if(m_MotorController != 8)
   {
@@ -151,6 +155,5 @@ SwerveModuleSubsystem::~SwerveModuleSubsystem()
 {
   delete m_driveMotor;
   delete m_turningMotor;
-  delete m_driveEncoder;
   delete m_turningEncoder;
 }

@@ -10,6 +10,7 @@
 #include <units/angular_velocity.h>
 #include <units/voltage.h>
 #include "rev/SparkRelativeEncoder.h"
+#include <string.h>
 
 /**
  * The Constants header provides a convenient place for teams to hold robot-wide
@@ -185,3 +186,8 @@ namespace ArmConstants
     constexpr double kiSumUpperArm = 0.0;
 }
  
+ namespace CANconstants
+ {
+    const std::string ctreBus = "krakencanbus";
+    const std::string rioBus = "rio";
+ }
