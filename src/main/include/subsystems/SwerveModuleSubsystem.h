@@ -40,7 +40,7 @@ class SwerveModuleSubsystem : public frc2::SubsystemBase
     static constexpr auto kModuleMaxAngularAcceleration =
         units::radians_per_second_squared_t{std::numbers::pi * 16.0};
 
-    rev::CANSparkMax* m_driveMotor;
+    // ctre::phoenix6::hardware::TalonFX* m_driveMotor;
     rev::CANSparkMax* m_turningMotor;
 
     ctre::phoenix6::hardware::TalonFX* m_driveMotor;
