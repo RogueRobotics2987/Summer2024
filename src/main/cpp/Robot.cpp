@@ -4,6 +4,7 @@
 
 #include "Robot.h"
 
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/CommandScheduler.h>
 
 void Robot::RobotInit() {}
@@ -34,11 +35,11 @@ void Robot::DisabledPeriodic() {}
  * RobotContainer} class.
  */
 void Robot::AutonomousInit() {
- /* m_autonomousCommand = m_container.GetAutonomousCommand();
+  m_autonomousCommand = m_container.GetAutonomousCommand();
 
   if (m_autonomousCommand) {
     m_autonomousCommand->Schedule();
-  }*/
+  }
 }
 
 void Robot::AutonomousPeriodic() {}
@@ -50,6 +51,7 @@ void Robot::TeleopInit() {
   // this line or comment it out.
   if (m_autonomousCommand) {
     m_autonomousCommand->Cancel();
+    m_autonomousCommand.reset();
   }
 }
 
@@ -62,16 +64,6 @@ void Robot::TeleopPeriodic() {}
  * This function is called periodically during test mode.
  */
 void Robot::TestPeriodic() {}
-
-/**
- * This function is called once when the robot is first started up.
- */
-void Robot::SimulationInit() {}
-
-/**
- * This function is called periodically whilst in simulation.
- */
-void Robot::SimulationPeriodic() {}
 
 #ifndef RUNNING_FRC_TESTS
 int main() {
