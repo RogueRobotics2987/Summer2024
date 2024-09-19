@@ -31,20 +31,20 @@
  */
 
 namespace DriveConstants {
-  constexpr int kFrontLeftDriveMotorPort = 8;
-  constexpr int kRearLeftDriveMotorPort = 6;
-  constexpr int kFrontRightDriveMotorPort = 2;
-  constexpr int kRearRightDriveMotorPort = 4;
+  constexpr int kFrontLeftDriveMotorPort = 3;
+  constexpr int kRearLeftDriveMotorPort = 2;
+  constexpr int kFrontRightDriveMotorPort = 4;
+  constexpr int kRearRightDriveMotorPort = 1;
 
-  constexpr int kFrontLeftTurningMotorPort = 7;
-  constexpr int kRearLeftTurningMotorPort = 5;
-  constexpr int kFrontRightTurningMotorPort = 1;
-  constexpr int kRearRightTurningMotorPort = 3;
+  constexpr int kFrontLeftTurningMotorPort = 48;
+  constexpr int kRearLeftTurningMotorPort = 43;
+  constexpr int kFrontRightTurningMotorPort = 9;
+  constexpr int kRearRightTurningMotorPort = 47;
 
-  constexpr int kFrontLeftTurningEncoderPort = 20; 
-  constexpr int kRearLeftTurningEncoderPort = 23;
-  constexpr int kFrontRightTurningEncoderPort = 21;
-  constexpr int kRearRightTurningEncoderPort = 22;
+  constexpr int kFrontLeftTurningEncoderPort = 13; 
+  constexpr int kRearLeftTurningEncoderPort = 16;
+  constexpr int kFrontRightTurningEncoderPort = 14;
+  constexpr int kRearRightTurningEncoderPort = 15;
 
   constexpr bool kFrontLeftTurningEncoderReversed = false;
   constexpr bool kRearLeftTurningEncoderReversed = false;
