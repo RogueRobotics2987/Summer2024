@@ -97,11 +97,12 @@ void SwerveModule::SetDesiredState(
       units::radian_t{cancoder_turningEncoder.GetPosition().GetValue()}, state.angle.Radians());
 
   // Set the motor outputs.
-  kraken_driveMotor.Set(driveOutput);
+  // kraken_driveMotor.Set(driveOutput);
+  kraken_driveMotor.Set(0.1);
   sparkmax_turningMotor.Set(turnOutput);
 }
 
 void SwerveModule::ResetEncoders() {
-  kraken_driveMotor.SetPosition(units::angle::turn_t(0));
+  //kraken_driveMotor.SetPosition(units::angle::turn_t(0));
   cancoder_turningEncoder.SetPosition(units::angle::turn_t(0));
 }

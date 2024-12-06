@@ -104,8 +104,8 @@ inline constexpr double kPModuleDriveController = 1;
 }  // namespace ModuleConstants
 
 namespace AutoConstants {
-inline constexpr auto kMaxSpeed = 3_mps;
-inline constexpr auto kMaxAcceleration = 3_mps_sq;
+inline constexpr auto kMaxSpeed = 0.1_mps; //We lowered the number for testing it was 3_mps.
+inline constexpr auto kMaxAcceleration = 0.1_mps_sq; //We lowered the number for testing it was 3_mps.
 inline constexpr auto kMaxAngularSpeed = 3.142_rad_per_s;
 inline constexpr auto kMaxAngularAcceleration = 3.142_rad_per_s_sq;
 
