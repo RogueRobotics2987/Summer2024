@@ -59,8 +59,15 @@ SwerveModule::SwerveModule(int driveMotorChannel, int turningMotorChannel,
   configs::TalonFXConfiguration kraken_toApply{};
   kraken_driveMotor.GetConfigurator().Apply(kraken_toApply);
 
+// Kraken motor configuration, not doing anything right now
+  configs::TalonFXConfiguration kraken_toApply{};
+  kraken_turnMotor.GetConfigurator().Apply(kraken_toApply);
+
   // Set update status for encoder to 100hz
   BaseStatusSignal::SetUpdateFrequencyForAll(100_Hz, kraken_driveMotor.GetPosition(), kraken_driveMotor.GetVelocity());
+
+ // Set update status for encoder to 100hz
+  BaseStatusSignal::SetUpdateFrequencyForAll(100_Hz, kraken_turnMotor.GetPosition(), kraken_turnMotor.GetVelocity());
 
 }
 
