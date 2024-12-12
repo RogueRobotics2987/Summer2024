@@ -19,11 +19,10 @@
 #include <ctre/phoenix6/CANcoder.hpp>
 
 #include "rev/CANSparkMax.h"
-
 #include "Constants.h"
 
 using namespace ctre::phoenix6;
-using namespace rev;
+
 
 class SwerveModule {
  public:
@@ -58,7 +57,7 @@ class SwerveModule {
       units::radians_per_second_squared_t{std::numbers::pi * 2.0};
 
   hardware::TalonFX kraken_driveMotor;
-  CANSparkMax sparkmax_turningMotor;
+  CANcoder kraken_turningMotor;
 
 //   frc::Encoder m_driveEncoder;
 //   frc::Encoder m_turningEncoder;

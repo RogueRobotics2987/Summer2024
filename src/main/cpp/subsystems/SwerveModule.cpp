@@ -15,7 +15,7 @@ SwerveModule::SwerveModule(int driveMotorChannel, int turningMotorChannel,
                            bool driveEncoderReversed,
                            bool turningEncoderReversed)
     : kraken_driveMotor(driveMotorChannel, "canivore"),
-      sparkmax_turningMotor(turningMotorChannel, rev::CANSparkMax::MotorType::kBrushless),
+      kraken_turningMotor(turningMotorChannel, "canivore"),
       cancoder_turningEncoder(turningEncoderPort, "canivore")
       
        {
@@ -98,7 +98,7 @@ void SwerveModule::SetDesiredState(
 
   // Set the motor outputs.
   kraken_driveMotor.Set(driveOutput);
-  sparkmax_turningMotor.Set(turnOutput);
+  kraken_turningMotor.Set(turnOutput);
 }
 
 void SwerveModule::ResetEncoders() {

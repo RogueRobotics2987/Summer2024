@@ -17,7 +17,7 @@
 #include <units/velocity.h>
 #include <units/voltage.h>
 
-#include "rev/CANSparkMax.h"
+
 
 #pragma once
 
@@ -66,7 +66,7 @@ namespace DriveConstants {
   constexpr int kFrontRightTurningCPR = 1;
   constexpr int kRearRightTurningCPR = 1;
 
-  constexpr rev::SparkRelativeEncoder::Type sparkEncoderType = rev::SparkRelativeEncoder::Type::kHallSensor;
+  
 
 // If you call DriveSubsystem::Drive with a different period make sure to update
 // this.
