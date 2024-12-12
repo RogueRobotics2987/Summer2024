@@ -12,13 +12,11 @@
 #include <frc/geometry/Rotation2d.h>
 #include <frc/kinematics/SwerveModulePosition.h>
 #include <frc/kinematics/SwerveModuleState.h>
-#include <frc/motorcontrol/Spark.h>
 #include <frc/trajectory/TrapezoidProfile.h>
 
 #include <ctre/phoenix6/TalonFX.hpp>
 #include <ctre/phoenix6/CANcoder.hpp>
 
-#include "rev/CANSparkMax.h"
 
 #include "Constants.h"
 
@@ -58,7 +56,7 @@ class SwerveModule {
       units::radians_per_second_squared_t{std::numbers::pi * 2.0};
 
   hardware::TalonFX kraken_driveMotor;
-  CANSparkMax sparkmax_turningMotor;
+  hardware::TalonFX kraken_turnMotor;
 
 //   frc::Encoder m_driveEncoder;
 //   frc::Encoder m_turningEncoder;

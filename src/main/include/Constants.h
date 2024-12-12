@@ -17,8 +17,6 @@
 #include <units/velocity.h>
 #include <units/voltage.h>
 
-#include "rev/CANSparkMax.h"
-
 #pragma once
 
 /**

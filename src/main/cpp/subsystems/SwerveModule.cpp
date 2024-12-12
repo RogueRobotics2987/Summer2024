@@ -15,7 +15,7 @@ SwerveModule::SwerveModule(int driveMotorChannel, int turningMotorChannel,
                            bool driveEncoderReversed,
                            bool turningEncoderReversed)
     : kraken_driveMotor(driveMotorChannel, "canivore"),
-      sparkmax_turningMotor(turningMotorChannel, rev::CANSparkMax::MotorType::kBrushless),
+      kraken_turnMotorMotor(turningMotorChannel, "canivore"),
       cancoder_turningEncoder(turningEncoderPort, "canivore")
       
        {
@@ -44,13 +44,13 @@ SwerveModule::SwerveModule(int driveMotorChannel, int turningMotorChannel,
       units::radian_t{-std::numbers::pi}, units::radian_t{std::numbers::pi});
 
 
-  // CANCoder turning motor configuration, not doing anything right now
+ /*/ // CANCoder turning motor configuration, not doing anything right now
   configs::MagnetSensorConfigs magnetConfigs;
   magnetConfigs.WithSensorDirection(signals::SensorDirectionValue::Clockwise_Positive);
   configs::CANcoderConfiguration cancoder_toApply{};
 
   cancoder_turningEncoder.GetConfigurator().Apply(cancoder_toApply);
-  cancoder_turningEncoder.GetConfigurator().Apply(magnetConfigs);
+  cancoder_turningEncoder.GetConfigurator().Apply(magnetConfigs); */
 
   // Set update status for encoder to 100hz
   BaseStatusSignal::SetUpdateFrequencyForAll(100_Hz, cancoder_turningEncoder.GetPosition(), cancoder_turningEncoder.GetVelocity());
@@ -98,7 +98,7 @@ void SwerveModule::SetDesiredState(
 
   // Set the motor outputs.
   kraken_driveMotor.Set(driveOutput);
-  sparkmax_turningMotor.Set(turnOutput);
+  kraken_turnMotor.Set(turnOutput);
 }
 
 void SwerveModule::ResetEncoders() {
