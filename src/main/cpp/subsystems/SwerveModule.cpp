@@ -9,6 +9,7 @@
 #include <frc/geometry/Rotation2d.h>
 
 #include "Constants.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 SwerveModule::SwerveModule(int driveMotorChannel, int turningMotorChannel,
                            const int turningEncoderPort,
@@ -74,11 +75,13 @@ frc::SwerveModulePosition SwerveModule::GetPosition() {
           units::radian_t{cancoder_turningEncoder.GetPosition().GetValue()}};
 }
 
-void SwerveModule::SetDesiredState(
-    const frc::SwerveModuleState& referenceState) {
-  frc::Rotation2d encoderRotation{
-      units::radian_t{cancoder_turningEncoder.GetPosition().GetValue()}};
-
+void SwerveModule::SetDesiredState(const frc::SwerveModuleState& referenceState) {
+      frc::Rotation2d encoderRotation{
+        units::radian_t{
+          cancoder_turningEncoder.GetPosition().GetValue()
+        }
+      };
+frc::SmartDashboard::PutNumber("EncodeState", cancoder_turningEncoder.GetPosition().GetValueAsDouble());
   // Optimize the reference state to avoid spinning further than 90 degrees
   auto state =
       frc::SwerveModuleState::Optimize(referenceState, encoderRotation);
@@ -91,14 +94,16 @@ void SwerveModule::SetDesiredState(
   // Calculate the drive output from the drive PID controller.
   const auto driveOutput = m_drivePIDController.Calculate(
       kraken_driveMotor.GetVelocity().GetValue().value(), state.speed.value());
-
+frc::SmartDashboard::PutNumber("DriveOutput", driveOutput);
+frc::SmartDashboard::PutNumber("Velocity", kraken_driveMotor.GetVelocity().GetValue().value());
+frc::SmartDashboard::PutNumber("Set Point", state.speed.value());
   // Calculate the turning motor output from the turning PID controller.
   auto turnOutput = m_turningPIDController.Calculate(
       units::radian_t{cancoder_turningEncoder.GetPosition().GetValue()}, state.angle.Radians());
 
   // Set the motor outputs.
   // kraken_driveMotor.Set(driveOutput);
-  kraken_driveMotor.Set(0.1);
+  kraken_driveMotor.Set(-0.02);
   sparkmax_turningMotor.Set(turnOutput);
 }
 

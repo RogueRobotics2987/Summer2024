@@ -88,24 +88,28 @@ inline constexpr double kPRearRightVel = 0.5;
 }  // namespace DriveConstants
 
 namespace ModuleConstants {
-inline constexpr int kEncoderCPR = 1024;
-inline constexpr double kWheelDiameterMeters = 0.15;
-inline constexpr double kDriveEncoderDistancePerPulse =
-    // Assumes the encoders are directly mounted on the wheel shafts
-    (kWheelDiameterMeters * std::numbers::pi) /
-    static_cast<double>(kEncoderCPR);
+inline constexpr double DriveGearRatio = 6.75; // Gear Ratio L2 6.75:1 (Roomba)
+// inline constexpr int kEncoderCPR = 1024;
+inline constexpr double kWheelDiameterMeters = 0.102; // Old value was 0.15
+// inline constexpr double kDriveEncoderDistancePerPulse =
+//     // Assumes the encoders are directly mounted on the wheel shafts
+//     (kWheelDiameterMeters * std::numbers::pi) /
+//     static_cast<double>(kEncoderCPR);
 
-inline constexpr double kTurningEncoderDistancePerPulse =
+// inline constexpr double kTurningEncoderDistancePerPulse =
     // Assumes the encoders are directly mounted on the wheel shafts
-    (std::numbers::pi * 2) / static_cast<double>(kEncoderCPR);
+    // (std::numbers::pi * 2) / static_cast<double>(kEncoderCPR);
 
 inline constexpr double kPModuleTurningController = 1;
 inline constexpr double kPModuleDriveController = 1;
+
+// Need to calculate wheel velocity based on gear ratio and wheel diameter
+
 }  // namespace ModuleConstants
 
 namespace AutoConstants {
-inline constexpr auto kMaxSpeed = 0.1_mps; //We lowered the number for testing it was 3_mps.
-inline constexpr auto kMaxAcceleration = 0.1_mps_sq; //We lowered the number for testing it was 3_mps.
+inline constexpr auto kMaxSpeed = 3_mps; //We lowered the number for testing it was 3_mps.
+inline constexpr auto kMaxAcceleration = 3_mps_sq; //We lowered the number for testing it was 3_mps.
 inline constexpr auto kMaxAngularSpeed = 3.142_rad_per_s;
 inline constexpr auto kMaxAngularAcceleration = 3.142_rad_per_s_sq;
 
